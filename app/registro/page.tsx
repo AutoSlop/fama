@@ -4,7 +4,7 @@ import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 
-export default function LoginPage() {
+export default function RegistroPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -17,13 +17,13 @@ export default function LoginPage() {
     setError("");
     setLoading(true);
 
-    const { error: err } = await supabase.auth.signInWithPassword({
+    const { error: err } = await supabase.auth.signUp({
       email,
       password,
     });
 
     if (err) {
-      setError(err.message === "Invalid login credentials" ? "Correo o contraseña incorrectos" : err.message);
+      setError(err.message);
       setLoading(false);
       return;
     }
@@ -37,9 +37,9 @@ export default function LoginPage() {
         <a href="/" className="mb-8 block text-center text-2xl font-bold tracking-tight">
           FAMA<span className="text-accent">.</span>
         </a>
-        <h1 className="mb-2 text-center text-xl font-bold">Inicia sesión</h1>
+        <h1 className="mb-2 text-center text-xl font-bold">Crea tu cuenta</h1>
         <p className="mb-8 text-center text-sm text-muted">
-          Accede a tu copiloto financiero
+          Empieza tu prueba gratis de 7 días
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -69,7 +69,7 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full rounded-lg border border-border bg-surface-2 px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
-              placeholder="••••••••"
+              placeholder="Mínimo 6 caracteres"
             />
           </div>
 
@@ -82,14 +82,18 @@ export default function LoginPage() {
             disabled={loading}
             className="w-full rounded-lg bg-accent py-3 text-sm font-semibold text-background transition-opacity hover:opacity-90 disabled:opacity-50"
           >
-            {loading ? "Ingresando..." : "Iniciar sesión"}
+            {loading ? "Creando cuenta..." : "Empezar prueba gratis"}
           </button>
         </form>
 
+        <p className="mt-4 text-center text-xs text-muted">
+          Sin tarjeta de crédito. Cancela cuando quieras.
+        </p>
+
         <p className="mt-6 text-center text-sm text-muted">
-          ¿No tienes cuenta?{" "}
-          <a href="/registro" className="font-medium text-accent hover:underline">
-            Regístrate gratis
+          ¿Ya tienes cuenta?{" "}
+          <a href="/login" className="font-medium text-accent hover:underline">
+            Inicia sesión
           </a>
         </p>
       </div>

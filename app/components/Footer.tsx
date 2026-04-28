@@ -5,9 +5,9 @@ export default function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <span className="text-xl font-bold tracking-tight text-foreground">
+            <a href="/" className="text-xl font-bold tracking-tight text-foreground">
               FAMA<span className="text-accent">.</span>
-            </span>
+            </a>
             <p className="mt-3 text-sm leading-relaxed text-muted">
               Tu copiloto financiero personal.
               <br />
@@ -20,17 +20,17 @@ export default function Footer() {
             <h4 className="mb-3 text-sm font-semibold text-foreground">Producto</h4>
             <ul className="space-y-2 text-sm text-muted">
               <li>
-                <a href="#como-funciona" className="transition-colors hover:text-foreground">
+                <a href="/como-funciona" className="transition-colors hover:text-foreground">
                   Cómo funciona
                 </a>
               </li>
               <li>
-                <a href="#features" className="transition-colors hover:text-foreground">
-                  Funcionalidades
+                <a href="/simulador" className="transition-colors hover:text-foreground">
+                  Simulador
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="transition-colors hover:text-foreground">
+                <a href="/precios" className="transition-colors hover:text-foreground">
                   Precios
                 </a>
               </li>
@@ -42,7 +42,7 @@ export default function Footer() {
             <h4 className="mb-3 text-sm font-semibold text-foreground">Soporte</h4>
             <ul className="space-y-2 text-sm text-muted">
               <li>
-                <a href="#faq" className="transition-colors hover:text-foreground">
+                <a href="/faq" className="transition-colors hover:text-foreground">
                   Preguntas frecuentes
                 </a>
               </li>
@@ -54,18 +54,18 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Cuenta */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold text-foreground">Legal</h4>
+            <h4 className="mb-3 text-sm font-semibold text-foreground">Cuenta</h4>
             <ul className="space-y-2 text-sm text-muted">
               <li>
-                <a href="#" className="transition-colors hover:text-foreground">
-                  Términos de servicio
+                <a href="/login" className="transition-colors hover:text-foreground">
+                  Iniciar sesión
                 </a>
               </li>
               <li>
-                <a href="#" className="transition-colors hover:text-foreground">
-                  Política de privacidad
+                <a href="/registro" className="transition-colors hover:text-foreground">
+                  Crear cuenta gratis
                 </a>
               </li>
             </ul>
