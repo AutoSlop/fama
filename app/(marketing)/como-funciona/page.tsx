@@ -161,7 +161,7 @@ export default function ComoFuncionaPage() {
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
-              href="/registro"
+              href="/signup"
               className="w-full rounded-lg bg-accent px-6 py-3.5 text-center text-sm font-semibold text-background transition-opacity hover:opacity-90 sm:w-auto"
             >
               Crear cuenta gratis

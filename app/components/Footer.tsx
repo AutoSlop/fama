@@ -64,7 +64,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/registro" className="transition-colors hover:text-foreground">
+                <a href="/signup" className="transition-colors hover:text-foreground">
                   Crear cuenta gratis
                 </a>
               </li>

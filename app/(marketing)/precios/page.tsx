@@ -64,7 +64,7 @@ export default function PreciosPage() {
               ))}
             </ul>
             <a
-              href="/registro"
+              href="/signup"
               className="mt-8 block w-full rounded-lg bg-accent py-3.5 text-center text-sm font-semibold text-background transition-opacity hover:opacity-90"
             >
               Empieza tu prueba gratis
@@ -143,7 +143,7 @@ export default function PreciosPage() {
           </div>
           <div className="mt-10 text-center">
             <a
-              href="/registro"
+              href="/signup"
               className="inline-flex rounded-lg bg-accent px-6 py-3.5 text-sm font-semibold text-background transition-opacity hover:opacity-90"
             >
               Empezar prueba gratis de 7 días

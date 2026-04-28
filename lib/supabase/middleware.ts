@@ -39,7 +39,7 @@ export async function updateSession(request: NextRequest) {
   }
 
   // If logged in and visiting auth pages (except callback), redirect to onboarding
-  if (user && (pathname === "/login" || pathname === "/registro" || (pathname.startsWith("/auth/") && !pathname.startsWith("/auth/callback")))) {
+  if (user && (pathname === "/login" || pathname === "/signup" || pathname === "/registro" || (pathname.startsWith("/auth/") && !pathname.startsWith("/auth/callback")))) {
     const url = request.nextUrl.clone();
     url.pathname = "/onboarding";
     return NextResponse.redirect(url);

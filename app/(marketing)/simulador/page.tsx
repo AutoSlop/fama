@@ -88,7 +88,7 @@ export default function SimuladorPage() {
               </p>
               <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
                 <a
-                  href="/registro"
+                  href="/signup"
                   className="w-full rounded-lg bg-accent px-6 py-3.5 text-center text-sm font-semibold text-background transition-opacity hover:opacity-90 sm:w-auto"
                 >
                   Prueba el simulador gratis
@@ -185,7 +185,7 @@ export default function SimuladorPage() {
               Completa el onboarding de 5 minutos para que FAMA conozca tu situación financiera. Después, podrás simular todos los escenarios que quieras.
             </p>
             <a
-              href="/registro"
+              href="/signup"
               className="mt-6 inline-flex rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-background transition-opacity hover:opacity-90"
             >
               Crear cuenta gratis
