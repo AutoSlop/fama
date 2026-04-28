@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { useRouter } from "next/navigation";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -11,7 +10,6 @@ export default function SignupPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const router = useRouter();
   const [supabase] = useState(() => createClient());
 
   async function handleSubmit(e: React.FormEvent) {
@@ -30,19 +28,34 @@ export default function SignupPage() {
 
     setLoading(true);
 
-    const { error: err } = await supabase.auth.signUp({
-      email,
-      password,
-    });
+    try {
+      const { data, error: err } = await supabase.auth.signUp({
+        email,
+        password,
+      });
 
-    if (err) {
-      setError(err.message);
+      if (err) {
+        setError(err.message);
+        setLoading(false);
+        return;
+      }
+
+      // If email confirmation is required, the session will be null
+      if (data.user && !data.session) {
+        setSuccess(true);
+        setError("");
+        // Don't redirect — user needs to confirm email first
+        setLoading(false);
+        return;
+      }
+
+      setSuccess(true);
+      // Hard navigation to ensure proxy middleware sees the new session cookies
+      setTimeout(() => { window.location.href = "/onboarding"; }, 1000);
+    } catch {
+      setError("Error de conexión. Verifica tu internet e intenta de nuevo.");
       setLoading(false);
-      return;
     }
-
-    setSuccess(true);
-    setTimeout(() => router.push("/onboarding"), 1000);
   }
 
   return (
@@ -58,7 +71,9 @@ export default function SignupPage() {
 
         {success ? (
           <div className="rounded-lg bg-accent/10 px-4 py-3 text-center text-sm text-accent">
-            Cuenta creada. Redirigiendo...
+            {loading
+              ? "Cuenta creada. Redirigiendo..."
+              : "Revisa tu correo electrónico para confirmar tu cuenta antes de iniciar sesión."}
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">

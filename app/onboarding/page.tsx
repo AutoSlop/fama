@@ -156,7 +156,7 @@ export default function OnboardingPage() {
   /* ─── Load existing data ─── */
   const loadData = useCallback(async () => {
     const { data: { user } } = await supabase.auth.getUser();
-    if (!user) { router.push("/auth/login"); return; }
+    if (!user) { router.push("/login"); return; }
     setUserId(user.id);
 
     // Load profile to get onboarding step

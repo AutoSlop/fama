@@ -156,7 +156,7 @@ export default function RadiografiaPage() {
   useEffect(() => {
     async function load() {
       const { data: { user } } = await supabase.auth.getUser();
-      if (!user) { router.push("/auth/login"); return; }
+      if (!user) { router.push("/login"); return; }
 
       // Check onboarding is complete
       const { data: profile } = await supabase
@@ -286,10 +286,10 @@ export default function RadiografiaPage() {
         {/* Actions */}
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
-            href="/dashboard"
+            href="/radiografia"
             className="w-full rounded-lg bg-accent px-6 py-3 text-center text-sm font-semibold text-background transition-opacity hover:opacity-90 sm:w-auto"
           >
-            Ir al dashboard
+            Volver a mi radiografía
           </a>
           <a
             href="/onboarding?edit=1"
