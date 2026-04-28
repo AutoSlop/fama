@@ -226,7 +226,7 @@ export default function Home() {
                 </p>
                 <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
                   <a
-                    href="#cta-final"
+                    href="/auth/signup"
                     className="w-full rounded-lg bg-accent px-6 py-3.5 text-center text-sm font-semibold text-background transition-opacity hover:opacity-90 sm:w-auto"
                   >
                     Empieza tu prueba gratis de 7 días
@@ -498,7 +498,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <a
-                  href="#cta-final"
+                  href="/auth/signup"
                   className="mt-8 block w-full rounded-lg bg-accent py-3.5 text-center text-sm font-semibold text-background transition-opacity hover:opacity-90"
                 >
                   Empieza tu prueba gratis

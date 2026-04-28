@@ -31,7 +31,7 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="#cta-final"
+            href="/auth/signup"
             className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-background transition-opacity hover:opacity-90"
           >
             Prueba gratis
@@ -70,7 +70,7 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="#cta-final"
+            href="/auth/signup"
             className="rounded-lg bg-accent px-4 py-2 text-center text-sm font-semibold text-background transition-opacity hover:opacity-90"
             onClick={() => setMenuOpen(false)}
           >
